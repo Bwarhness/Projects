@@ -1,0 +1,114 @@
+﻿@{
+    var viewModel = (SchoolTHang.Models.MainLayoutViewModel)ViewBag.MainLayoutViewModel;
+    if (viewModel.Currentuser == null)
+    {
+        viewModel.Currentuser = new SchoolTHang.Models.User();
+    }
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+
+    <div id="wrapper" class="toggled">
+        @if (viewModel.Currentuser != null)
+        {
+            <div id="toggleBar">
+
+            </div>
+        <!-- Sidebar -->
+
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand">
+                        <div class="col-md-12">
+                            @if (@viewModel.Currentuser.IsTeacher)
+                            {
+                                <select class="form-control">
+                                    @foreach (var item in viewModel.Currentuser.AssignedClass.Fag)
+                                    {
+                                        <option value="@item.Id">@item.Name</option>
+                                    }
+                                </select>
+                            }
+                            else
+                            {
+
+                               <a href="@Url.Action("Index")"> <h4>@viewModel.Currentuser.AssignedClass.Name - @viewModel.Currentuser.AssignedClass.School.Name</h4></a>
+                            }
+
+                        </div>
+                    </li>
+                    @foreach (var item in viewModel.Currentuser.AssignedClass.Fag)
+                    {
+
+                        <li>
+                            <a href="@Url.Action("Fag",new { Id=item.Id})">@item.Name</a>
+                        </li>
+
+                    }
+
+                </ul>
+                <div class="col-md-12 text-center" id="LoginBox">
+
+                    <h3> @viewModel.Currentuser.Name</h3>
+
+
+                    <a href="@Url.Action("Login")" class="btn btn-danger form-control">Log af</a>
+
+                </div>
+
+            </div>
+        }
+
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+
+
+            @RenderBody()
+        </div>
+        <!-- /#page-content-wrapper -->
+        @*<div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        </ul>
+                        @Html.Partial("_LoginPartial")
+                    </div>
+                </div>
+            </div>*@
+
+
+        <div class="col-md-12">
+        </div>
+
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script src="~/Scripts/myTypeScript.ts"></script>
+
+</body>
+</html>

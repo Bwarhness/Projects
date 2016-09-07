@@ -1,0 +1,5 @@
+c:\users\louise\documents\visual studio 2015\Projects\Players Guide\Players Guide\bin\Debug\Players Guide.dll
+c:\users\louise\documents\visual studio 2015\Projects\Players Guide\Players Guide\bin\Debug\Players Guide.pdb
+c:\users\louise\documents\visual studio 2015\Projects\Players Guide\Players Guide\obj\Debug\Fibonacci sequence.csprojResolveAssemblyReference.cache
+c:\users\louise\documents\visual studio 2015\Projects\Players Guide\Players Guide\obj\Debug\Players Guide.dll
+c:\users\louise\documents\visual studio 2015\Projects\Players Guide\Players Guide\obj\Debug\Players Guide.pdb

@@ -1,0 +1,84 @@
+﻿@model SchoolTHang.Models.Fag
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12">
+    <h2>@Model.Name</h2>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Lektier
+            </div>
+            <div class="panel-body" style="padding:0">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Navn</th>
+                            <th>Oprettet dato</th>
+                            <th>Deadline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Assignments)
+                        {
+                        <tr>
+                            <td>
+                                @item.Name
+                            </td>
+                            <td>
+                                @item.Created
+                            </td>
+                            <td>
+                                @item.Deadline
+                            </td>
+                        </tr>
+                        }
+
+                     
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Oversigt af opgaver
+            </div>
+            <div class="panel-body" style="padding:0">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Navn</th>
+                            <th>Dato</th>
+                            <th>Karakter</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>asdsadsa</td>
+                            <td>asdsadsa</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>asdsadsa</td>
+                            <td>asdsadsa</td>
+                            <td>7</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+<hr />
+@Html.Partial("_Chat")

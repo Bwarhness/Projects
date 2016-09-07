@@ -1,0 +1,70 @@
+﻿@model SchoolTHang.Models.MainViewModel
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Klasser beskeder
+            </div>
+            <div class="panel-body">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Navn</th>
+                            <th>Dato</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Annoucements)
+                        {
+                            <tr>
+
+                                <td>@item.Name</td>
+                                <td>@item.Created</td>
+                            </tr>
+                            
+                        }
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Klasse arrangemanger
+            </div>
+            <div class="panel-body" style="padding:0">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Navn</th>
+                            <th>Dato</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Arrangements)
+                        {
+                            <tr>
+
+                                <td>@item.Name</td>
+                                <td>@item.Deadline</td>
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+   
+
+</div>
+<hr />
+@Html.Partial("_Chat")
