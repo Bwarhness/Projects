@@ -226,6 +226,8 @@
     <Content Include="Views\Shared\_Chat.cshtml" />
     <Content Include="Scripts\myTypeScript.js.map" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\CreateAnnoucement.cshtml" />
+    <Content Include="Views\Home\CreateArrangement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

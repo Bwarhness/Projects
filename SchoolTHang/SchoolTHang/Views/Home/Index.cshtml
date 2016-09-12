@@ -4,6 +4,10 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 Klasser beskeder
+                @if (Model.currentuser.IsTeacher)
+                {
+                    <a href="@Url.Action("CreateAnnoucement",new { SubjectID = Model.currentuser.AssignedClass.Id })" class="btn btn-default">Opret besked</a>
+                }
             </div>
             <div class="panel-body">
 

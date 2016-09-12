@@ -50,6 +50,49 @@ namespace SchoolTHang.Controllers
             var fag = DB.Fag.Find(Id);
             return View(fag);
         }
+        public ActionResult CreateAnnoucement(Guid SubjectID)
+        {
+            ViewBag.SubjectID = SubjectID;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateAnnoucement(Announcement CreatedAnnoucement)
+        {
+            CreatedAnnoucement.Id = Guid.NewGuid();
+            CreatedAnnoucement.Created = DateTime.Now;
+            DB.Annocements.Add(CreatedAnnoucement);
+            DB.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult CreateArrangement(Guid SubjectID)
+        {
+            ViewBag.SubjectID = SubjectID;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateArrangement(Arrangements CreatedArrangement)
+        {
+            CreatedArrangement.Id = Guid.NewGuid();
+            CreatedArrangement.Created = DateTime.Now;
+            DB.Arrangements.Add(CreatedArrangement);
+            DB.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult CreateAssignment(Guid SubjectID)
+        {
+            ViewBag.SubjectID = SubjectID;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateAssignment(Assignment CreatedAssignment)
+        {
+            CreatedAssignment.Id = Guid.NewGuid();
+            CreatedAssignment.Created = DateTime.Now;
+            DB.Assignments.Add(CreatedAssignment);
+            DB.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         public HomeController()
         {
             this.MainLayoutViewModel = new MainLayoutViewModel();//has property PageTitle

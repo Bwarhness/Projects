@@ -8,4 +8,3 @@ $("#sidebar-wrapper").mouseleave(function (e) {
     $("#wrapper").addClass("toggled");
     $("#toggleBar").delay(20).fadeIn(150);
 });
-//# sourceMappingURL=myTypeScript.js.map
