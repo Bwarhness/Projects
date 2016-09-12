@@ -6,7 +6,7 @@
                 Klasser beskeder
                 @if (Model.currentuser.IsTeacher)
                 {
-                    <a href="@Url.Action("CreateAnnoucement",new { SubjectID = Model.currentuser.AssignedClass.Id })" class="btn btn-default">Opret besked</a>
+                    <button class="btn btn-default" onclick="CreateArrangement()">Opret besked</button>
                 }
             </div>
             <div class="panel-body">
@@ -67,7 +67,18 @@
 
         </div>
     </div>
-   
+   <div id="CreateArrangement" style="display:none;">
+       <div class="panel panel-default">
+           <div class="panel-heading">
+               <h2>Create Arrangement</h2>
+           </div>
+           <div class="panel-body">
+
+
+           </div>
+       </div>
+       <h1>LASDLASL</h1>
+   </div>
 
 </div>
 <hr />

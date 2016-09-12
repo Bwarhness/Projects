@@ -8,3 +8,10 @@ $("#sidebar-wrapper").mouseleave(function (e) {
     $("#wrapper").addClass("toggled");
     $("#toggleBar").delay(20).fadeIn(150);
 });
+function CreateArrangement() {
+    $('#CreateArrangement').dialog('open');
+    return null;
+}
+$("#CreateArrangement").dialog({
+    autoOpen: false
+});
