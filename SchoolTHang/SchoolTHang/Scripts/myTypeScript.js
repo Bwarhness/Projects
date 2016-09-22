@@ -15,3 +15,4 @@ function CreateArrangement() {
 $("#CreateArrangement").dialog({
     autoOpen: false
 });
+//# sourceMappingURL=myTypeScript.js.map

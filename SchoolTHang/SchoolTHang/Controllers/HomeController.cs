@@ -20,6 +20,7 @@ namespace SchoolTHang.Controllers
             Viewmodel.currentuser = Currentuser;
             Viewmodel.Annoucements = DB.Annocements.Where(p => p.ID_Subject == Currentuser.AssignedClass.Id);
             Viewmodel.Arrangements = DB.Arrangements.Where(p => p.ID_Subject == Currentuser.AssignedClass.Id);
+            
             return View(Viewmodel);
 
         }
@@ -49,6 +50,19 @@ namespace SchoolTHang.Controllers
             MainViewModel viewModel = new MainViewModel();
             var fag = DB.Fag.Find(Id);
             return View(fag);
+        }
+        public ActionResult CreateClass()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateClass(Classes FilledClass)
+        {
+            FilledClass.Id = Guid.NewGuid();
+            FilledClass.Fk_School = Currentuser.AssignedClass.Fk_School;
+            DB.Classes.Add(FilledClass);
+            DB.SaveChanges();
+            return RedirectToAction("Index");
         }
         public ActionResult CreateAnnoucement(Guid SubjectID)
         {
@@ -95,10 +109,10 @@ namespace SchoolTHang.Controllers
 
         public HomeController()
         {
-            this.MainLayoutViewModel = new MainLayoutViewModel();//has property PageTitle
-            this.MainLayoutViewModel.Currentuser = Currentuser;
+            this.mainLayoutViewModel = new MainLayoutViewModel();//has property PageTitle
+            this.mainLayoutViewModel.Currentuser = Currentuser;
 
-            this.ViewData["MainLayoutViewModel"] = this.MainLayoutViewModel;
+            this.ViewData["MainLayoutViewModel"] = this.mainLayoutViewModel;
         }
     }
 }

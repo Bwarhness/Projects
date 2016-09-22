@@ -1,7 +1,26 @@
-﻿
+﻿@model SchoolTHang.Models.Classes
 @{
     ViewBag.Title = "CreateClass";
 }
 
 <h2>CreateClass</h2>
 
+@using (Html.BeginForm())
+{
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2>Create CLass</h2>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    @Html.LabelFor(p => p.Name)
+                    @Html.EditorFor(p => p.Name)
+                </div>
+
+
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </div>
+    </div>
+} 
