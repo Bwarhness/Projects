@@ -11,7 +11,7 @@ namespace SchoolTHang.Controllers
     {
         public DataContext DB = new DataContext();
         public static User Currentuser;
-
+        public static Classes CurrentClass;
         public MainLayoutViewModel mainLayoutViewModel { get; set; }
         
         

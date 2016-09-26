@@ -1,5 +1,5 @@
 ﻿body {
-
+        overflow-x: hidden;
     padding-bottom: 20px;
 }
 
@@ -8,7 +8,12 @@
     padding-left: 15px;
     padding-right: 15px;
 }
-
+        .container {
+            background-color: #99CCFF;
+            border: thick solid #808080;
+            padding: 20px;
+            margin: 20px;
+        }
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -36,9 +41,7 @@ textarea {
     margin-right:20px;
     background-color:blue;
 }
- body {
-    overflow-x: hidden;
- }
+
 
 /* Toggle Styles */
 
@@ -53,7 +56,15 @@ textarea {
 #wrapper.toggled {
     padding-left: 250px;
 }
+#discussion{
+    min-height:300px;
+    max-height:300px;
+}
+.chat{
+    overflow-y:scroll;
 
+    border:dashed red 2px;
+}
 #sidebar-wrapper {
     color:white;
     z-index: 1000;

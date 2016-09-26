@@ -21,3 +21,7 @@ function CreateArrangement()
 $("#CreateArrangement").dialog({
     autoOpen: false
 });
+
+$(function () {
+    $(".datepicker").datepicker({ dateFormat: 'dd-mm-yy' });
+});

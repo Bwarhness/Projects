@@ -112,3 +112,14 @@ C:\Users\Nicolai\Documents\Projects\SchoolTHang\SchoolTHang\bin\Newtonsoft.Json.
 C:\Users\Nicolai\Documents\Projects\SchoolTHang\SchoolTHang\obj\Debug\SchoolTHang.csprojResolveAssemblyReference.cache
 C:\Users\Nicolai\Documents\Projects\SchoolTHang\SchoolTHang\obj\Debug\SchoolTHang.dll
 C:\Users\Nicolai\Documents\Projects\SchoolTHang\SchoolTHang\obj\Debug\SchoolTHang.pdb
+C:\Users\Nicolai\Documents\Projects\SchoolTHang\SchoolTHang\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\Nicolai\Documents\Projects\SchoolTHang\SchoolTHang\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\Nicolai\Documents\Projects\SchoolTHang\SchoolTHang\bin\Microsoft.Owin.dll
+C:\Users\Nicolai\Documents\Projects\SchoolTHang\SchoolTHang\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Nicolai\Documents\Projects\SchoolTHang\SchoolTHang\bin\Microsoft.Owin.Security.dll
+C:\Users\Nicolai\Documents\Projects\SchoolTHang\SchoolTHang\bin\Owin.dll
+C:\Users\Nicolai\Documents\Projects\SchoolTHang\SchoolTHang\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\Nicolai\Documents\Projects\SchoolTHang\SchoolTHang\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\Nicolai\Documents\Projects\SchoolTHang\SchoolTHang\bin\Microsoft.Owin.xml
+C:\Users\Nicolai\Documents\Projects\SchoolTHang\SchoolTHang\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Nicolai\Documents\Projects\SchoolTHang\SchoolTHang\bin\Microsoft.Owin.Security.xml

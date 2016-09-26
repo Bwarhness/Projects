@@ -1,14 +1,24 @@
 ﻿<hr />
 <div class="row">
     <div class="col-md-8">
-        <ul id="Chat" style="background-color:green; width:100%; min-height:200px;">
+        <input type="hidden" id="displayname" />
+
+        <ul id="discussion" width:100%" class="chat">
 
         </ul>
-        @Html.TextBox("ChatInput",null,new { @Class="form-control"})
+        @Html.TextBox("message", null,new { @Class="form-control"})
+        
+
     </div>
     <div class="col-md-4">
-        <ul id="OnlineUsers" style="background-color:green; width:100%; min-height:200px;">
+        <ul id="OnlineUsers" class="chat" style="width:100%; min-height:300px;max-height:300px;">
 
         </ul>
     </div>
 </div>
+
+@section scripts {
+
+
+
+    }

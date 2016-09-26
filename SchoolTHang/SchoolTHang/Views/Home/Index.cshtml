@@ -6,7 +6,8 @@
                 Klasser beskeder
                 @if (Model.currentuser.IsTeacher)
                 {
-                    <button class="btn btn-default" onclick="CreateArrangement()">Opret besked</button>
+                    @Html.ActionLink("Opret besked", "CreateAnnoucement",new { SubjectID = Model.currentuser.Fk_AssignedClass}, new { @class="btn btn-default" })
+                   
                 }
             </div>
             <div class="panel-body">
@@ -39,6 +40,11 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 Klasse arrangemanger
+                @if (Model.currentuser.IsTeacher)
+                {
+                    @Html.ActionLink("Opret Begivenhed", "CreateArrangement", new { SubjectID = Model.currentuser.Fk_AssignedClass }, new { @class = "btn btn-default" })
+
+                }
             </div>
             <div class="panel-body" style="padding:0">
                 <table class="table">
@@ -46,7 +52,7 @@
                         <tr>
                             <th>Navn</th>
                             <th>Dato</th>
-
+                            <th>Oprettet</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -56,6 +62,7 @@
 
                                 <td>@item.Name</td>
                                 <td>@item.Deadline</td>
+                                <td>@item.Created</td>
                             </tr>
 
                         }
@@ -81,5 +88,5 @@
    </div>
 
 </div>
-<hr />
+
 @Html.Partial("_Chat")

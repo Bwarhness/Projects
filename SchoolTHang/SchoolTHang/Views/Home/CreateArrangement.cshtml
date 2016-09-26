@@ -1,25 +1,25 @@
 ﻿@model SchoolTHang.Models.Arrangements
 @{
-    ViewBag.Title = "CreateAnnoucement";
+    ViewBag.Title = "CreateArrangement";
 }
 
-<h2>CreateAnnoucement</h2>
+<h2>Opret begivenhed</h2>
 @using (Html.BeginForm())
 {
-    <div class="panel panel-default">
+
 <div class="form-group">
     @Html.LabelFor(p => p.Name)
-    @Html.TextBoxFor(p => p.Name)
+    @Html.TextBoxFor(p => p.Name, new { @class = "form-control" })
     </div>
         <div class="form-group">
             @Html.LabelFor(p => p.Deadline)
-            @Html.TextAreaFor(p => p.Deadline)
+            @Html.TextBoxFor(model => model.Deadline, new { @class = "form-control datepicker", placeholder = "Vælg Deadline Dato her", Value = DateTime.Now.AddDays(7).ToShortDateString() })
         </div>
         <div class="form-group">
             @Html.LabelFor(p => p.Content)
             @Html.TextAreaFor(p => p.Content)
         </div>
-    </div>
+
     @Html.HiddenFor(p => p.ID_Subject, new { Value = ViewBag.SubjectID})
-    <input type="submit" class="btn btn-success" />
+    <input type="submit" value="Opret begivenhed" class="btn btn-success" />
 }

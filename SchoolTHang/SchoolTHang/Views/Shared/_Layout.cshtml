@@ -13,6 +13,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 </head>
 <body>
@@ -29,7 +30,7 @@
                 <ul class="sidebar-nav">
                     <li class="sidebar-brand">
                         <div class="col-md-12">
-                            @if (@viewModel.Currentuser.IsTeacher)
+                            @*@if (@viewModel.Currentuser.IsTeacher)
                             {
                                 <a href="@Url.Action("CreateClass")">Create Class</a>
                                 <select class="form-control">
@@ -39,14 +40,18 @@
                                     }
                                 </select>
                             }
-                            else
-                            {
+                            else*@
+                            
 
                                <a href="@Url.Action("Index")"> <h4>@viewModel.Currentuser.AssignedClass.Name - @viewModel.Currentuser.AssignedClass.School.Name</h4></a>
-                            }
+                            
 
                         </div>
                     </li>
+                    @if (viewModel.Currentuser.IsTeacher)
+                    {
+                        <li><a href="@Url.Action("CreateFag")">Opret Fag</a></li>
+                    }
                     @foreach (var item in viewModel.Currentuser.AssignedClass.Fag)
                     {
 
@@ -99,9 +104,6 @@
             </div>*@
 
 
-        <div class="col-md-12">
-        </div>
-
     </div>
 
 
@@ -110,6 +112,47 @@
     @RenderSection("scripts", required: false)
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
     <script src="~/Scripts/myTypeScript.js"></script>
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'textarea' });</script>
+    <script src="~/Scripts/jquery.signalR-2.2.1.min.js"></script>
+    <script src="signalr/hubs"></script>
+    <!--Add script to update the page and send messages.-->
+    <script type="text/javascript">
+        $(function () {
+            // Declare a proxy to reference the hub.
+            var chat = $.connection.chatHub;
 
+            // Create a function that the hub can call to broadcast messages.
+            chat.client.broadcastMessage = function (name, message) {
+                // Html encode display name and message.
+                var encodedName = $('<div />').text(name).html();
+                var encodedMsg = $('<div />').text(message).html();
+                // Add the message to the page.
+                $('#discussion').append('<li><strong>' + encodedName
+                    + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</li>');
+                var wtf = $('#discussion');
+                var height = wtf[0].scrollHeight;
+                wtf.scrollTop(height);
+            };
+            // Get the user name and store it to prepend to messages.
+            $('#displayname').val(prompt('Enter your name:', ''));
+            // Set initial focus to message input box.
+            $('#message').focus();
+
+            // Start the connection.
+            $.connection.hub.start().done(function () {
+                
+                $('#message').on('keypress', function (e) {
+                    if (e.which === 13) {
+
+                        chat.server.send($('#displayname').val(), $('#message').val());
+                        $('#message').val('').focus();
+                    }
+                });
+
+            });
+        });
+
+    </script>
 </body>
 </html>

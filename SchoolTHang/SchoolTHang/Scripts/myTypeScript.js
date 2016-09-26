@@ -15,4 +15,6 @@ function CreateArrangement() {
 $("#CreateArrangement").dialog({
     autoOpen: false
 });
-//# sourceMappingURL=myTypeScript.js.map
+$(function () {
+    $(".datepicker").datepicker({ dateFormat: 'dd-mm-yy' });
+});

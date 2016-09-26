@@ -16,6 +16,7 @@ namespace SchoolTHang.Controllers
             {
                 return RedirectToAction("Login");
             }
+            Currentuser = DB.Users.Find(Currentuser.Id);
             MainViewModel Viewmodel = new MainViewModel();
             Viewmodel.currentuser = Currentuser;
             Viewmodel.Annoucements = DB.Annocements.Where(p => p.ID_Subject == Currentuser.AssignedClass.Id);
@@ -38,6 +39,7 @@ namespace SchoolTHang.Controllers
                 Models.User FoundUser = DB.Users.Where(p => p.Name == UserLogin.Name).FirstOrDefault();
                 if (FoundUser.Password == UserLogin.Password)
                 {
+                    
                     Currentuser = FoundUser;
                     return RedirectToAction("Index");
                 }
@@ -69,7 +71,8 @@ namespace SchoolTHang.Controllers
             ViewBag.SubjectID = SubjectID;
             return View();
         }
-        [HttpPost]
+
+        [HttpPost, ValidateInput(false)]
         public ActionResult CreateAnnoucement(Announcement CreatedAnnoucement)
         {
             CreatedAnnoucement.Id = Guid.NewGuid();
@@ -83,7 +86,7 @@ namespace SchoolTHang.Controllers
             ViewBag.SubjectID = SubjectID;
             return View();
         }
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult CreateArrangement(Arrangements CreatedArrangement)
         {
             CreatedArrangement.Id = Guid.NewGuid();
@@ -95,9 +98,23 @@ namespace SchoolTHang.Controllers
         public ActionResult CreateAssignment(Guid SubjectID)
         {
             ViewBag.SubjectID = SubjectID;
+            return RedirectToAction("Fag", new { id= SubjectID });
+        }
+        public ActionResult CreateFag()
+        {
+            
             return View();
         }
         [HttpPost]
+        public ActionResult CreateFag(Fag CreatedFag)
+        {
+            CreatedFag.Id = Guid.NewGuid();
+            CreatedFag.Fk_class = Currentuser.Fk_AssignedClass;
+            DB.Fag.Add(CreatedFag);
+            DB.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        [HttpPost, ValidateInput(false)]
         public ActionResult CreateAssignment(Assignment CreatedAssignment)
         {
             CreatedAssignment.Id = Guid.NewGuid();

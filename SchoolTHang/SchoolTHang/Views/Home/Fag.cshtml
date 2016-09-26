@@ -1,5 +1,7 @@
 ﻿@model SchoolTHang.Models.Fag
 @{
+    var viewModel = (SchoolTHang.Models.MainLayoutViewModel)ViewBag.MainLayoutViewModel;
+
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -11,6 +13,11 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 Lektier
+                @if (viewModel.Currentuser.IsTeacher)
+                {
+                    @Html.ActionLink("Opret Lektie", "CreateAssignment", new { SubjectID = Model.Id }, new { @class = "btn btn-default" })
+
+                }
             </div>
             <div class="panel-body" style="padding:0">
                 <table class="table">
@@ -29,10 +36,10 @@
                                 @item.Name
                             </td>
                             <td>
-                                @item.Created
+                                @item.Created.ToShortDateString()
                             </td>
                             <td>
-                                @item.Deadline
+                                @item.Deadline.ToShortDateString()
                             </td>
                         </tr>
                         }
@@ -48,7 +55,7 @@
     <div class="col-md-6">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Oversigt af opgaver
+                Rettet opgaver
             </div>
             <div class="panel-body" style="padding:0">
                 <table class="table">
